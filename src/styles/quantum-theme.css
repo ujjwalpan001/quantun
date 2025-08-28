@@ -1,0 +1,481 @@
+/* ===== MODERN DARK THEME ===== */
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+/* CSS Variables for Modern Dark Theme */
+:root {
+  /* Modern Muted Color Palette */
+  --quantum-primary: #4dd0e1;        /* Muted teal */
+  --quantum-secondary: #8c7ae6;      /* Subtle purple */
+  --quantum-cyan: #4dd0e1;           /* Same as primary */
+  --quantum-indigo: #5a67d8;         /* Soft indigo */
+  --quantum-navy: #2d3748;           /* Warm navy */
+  
+  /* Dark Background Colors */
+  --space-black: #0f1419;            /* Deep navy */
+  --space-dark: #1a1b23;             /* Dark charcoal */
+  --space-medium: #1e1e2e;           /* Panel background */
+  --space-light: #2a2a3c;            /* Lighter panel */
+  
+  /* Soft Glow Effects */
+  --soft-glow: 0 0 8px currentColor;
+  --subtle-glow: 0 0 4px currentColor;
+  --quantum-glow-primary: 0 0 15px rgba(77, 208, 225, 0.3);
+  --quantum-glow-cyan: 0 0 15px rgba(77, 208, 225, 0.3);
+  --quantum-glow-purple: 0 0 15px rgba(140, 122, 230, 0.3);
+  
+  /* Subtle Glass Effects */
+  --glass-bg: rgba(30, 30, 46, 0.8);
+  --glass-border: rgba(58, 58, 74, 0.5);
+  --glass-blur: blur(10px);
+  --quantum-glass: rgba(77, 208, 225, 0.05);
+}
+
+/* ===== BODY & HTML ===== */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--space-black) 0%, var(--space-dark) 100%);
+  color: #e6e6e6;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== MAIN BACKGROUND CONTAINER ===== */
+.quantum-bg {
+  background: linear-gradient(135deg, var(--space-black) 0%, var(--space-dark) 100%);
+  color: #e6e6e6;
+}
+
+/* ===== SUBTLE ANIMATED BACKGROUND ===== */
+.quantum-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse at center, 
+      rgba(77, 208, 225, 0.08) 0%, 
+      rgba(140, 122, 230, 0.05) 25%, 
+      transparent 50%),
+    radial-gradient(circle at 20% 80%, 
+      rgba(140, 122, 230, 0.06) 0%, 
+      transparent 50%),
+    radial-gradient(circle at 80% 20%, 
+      rgba(77, 208, 225, 0.06) 0%, 
+      transparent 50%),
+    linear-gradient(135deg, 
+      var(--space-black) 0%, 
+      var(--space-dark) 25%, 
+      var(--space-medium) 50%, 
+      var(--space-black) 100%);
+  animation: subtleRotate 180s linear infinite;
+}
+
+.quantum-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(77, 208, 225, 0.4), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(140, 122, 230, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(77, 208, 225, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(77, 208, 225, 0.2), transparent),
+    radial-gradient(1px 1px at 160px 30px, rgba(140, 122, 230, 0.3), transparent),
+    radial-gradient(1px 1px at 200px 20px, rgba(77, 208, 225, 0.2), transparent),
+    radial-gradient(1px 1px at 250px 100px, rgba(77, 208, 225, 0.3), transparent);
+  background-size: 300px 200px;
+  animation: starsFloat 90s linear infinite;
+}
+
+.quantum-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(0deg, rgba(77, 208, 225, 0.01) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(77, 208, 225, 0.01) 50%, transparent 50%);
+  background-size: 60px 60px;
+  animation: subtleGrid 30s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes subtleRotate {
+  from { transform: rotate(0deg) scale(1.02); }
+  to { transform: rotate(360deg) scale(1.02); }
+}
+
+@keyframes starsFloat {
+  from { transform: translateX(-300px) translateY(-100px); }
+  to { transform: translateX(calc(100vw + 300px)) translateY(100px); }
+}
+
+@keyframes subtleGrid {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* ===== ENHANCED TYPOGRAPHY ===== */
+.quantum-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--quantum-cyan);
+  text-shadow: var(--subtle-glow);
+  letter-spacing: 0.5px;
+  background: linear-gradient(45deg, var(--quantum-cyan), var(--quantum-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.quantum-subheading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--quantum-primary);
+  text-shadow: var(--subtle-glow);
+  letter-spacing: 0.25px;
+}
+
+.quantum-text {
+  font-family: 'Inter', sans-serif;
+  color: #d0d0d0;
+  font-weight: 400;
+  text-shadow: none;
+}
+
+/* Font Family Utilities */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'Fira Code', monospace; }
+
+/* ===== GLASS PANELS ===== */
+.quantum-glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.quantum-glass:hover {
+  background: rgba(30, 30, 46, 0.9);
+  border-color: rgba(77, 208, 225, 0.3);
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(77, 208, 225, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== ENHANCED MODERN BUTTONS ===== */
+.quantum-btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--quantum-primary);
+  background: linear-gradient(135deg, 
+    rgba(77, 208, 225, 0.1) 0%, 
+    rgba(140, 122, 230, 0.1) 100%);
+  color: var(--quantum-primary);
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    var(--quantum-glow-primary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.quantum-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.quantum-btn:hover {
+  color: var(--quantum-cyan);
+  border-color: var(--quantum-cyan);
+  background: linear-gradient(135deg, 
+    rgba(77, 208, 225, 0.15) 0%, 
+    rgba(140, 122, 230, 0.15) 100%);
+  box-shadow: 
+    var(--quantum-glow-cyan),
+    0 4px 16px rgba(77, 208, 225, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.quantum-btn:hover::before {
+  left: 100%;
+}
+
+.quantum-btn:active {
+  transform: translateY(0px);
+  box-shadow: 
+    var(--quantum-glow-primary),
+    0 2px 8px rgba(77, 208, 225, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Ripple effect for clicked buttons */
+.quantum-btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-btn-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(77, 208, 225, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.quantum-btn-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===== MODERN INPUT FIELDS ===== */
+.quantum-input {
+  font-family: 'Inter', sans-serif;
+  background: rgba(30, 30, 46, 0.8);
+  border: 1px solid rgba(77, 208, 225, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #e6e6e6;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quantum-input:focus {
+  outline: none;
+  border-color: var(--quantum-primary);
+  background: rgba(30, 30, 46, 0.9);
+  box-shadow: 
+    0 0 0 3px rgba(77, 208, 225, 0.15),
+    inset 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.quantum-input::placeholder {
+  color: rgba(230, 230, 230, 0.5);
+}
+
+/* ===== MODERN CARDS ===== */
+.quantum-card {
+  background: linear-gradient(135deg, 
+    rgba(30, 30, 46, 0.8) 0%, 
+    rgba(77, 208, 225, 0.02) 50%, 
+    rgba(140, 122, 230, 0.02) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(77, 208, 225, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, 
+    var(--quantum-primary), 
+    var(--quantum-secondary), 
+    var(--quantum-primary));
+  background-size: 400% 400%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: subtleBorderGlow 6s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quantum-card:hover::before {
+  opacity: 0.3;
+}
+
+.quantum-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(77, 208, 225, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@keyframes subtleBorderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== MODERN TABS ===== */
+.quantum-tabs {
+  background: rgba(30, 30, 46, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 6px;
+  border: 1px solid rgba(77, 208, 225, 0.2);
+}
+
+.quantum-tab {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: rgba(230, 230, 230, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.25px;
+}
+
+.quantum-tab.active {
+  background: linear-gradient(135deg, 
+    rgba(77, 208, 225, 0.15) 0%, 
+    rgba(140, 122, 230, 0.15) 100%);
+  color: var(--quantum-primary);
+  text-shadow: var(--subtle-glow);
+  box-shadow: 
+    0 2px 8px rgba(77, 208, 225, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.quantum-tab:hover:not(.active) {
+  background: rgba(77, 208, 225, 0.05);
+  color: var(--quantum-cyan);
+}
+
+/* ===== MODERN ANIMATIONS ===== */
+@keyframes subtleGridFlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 30px); }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes subtleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes subtleGlow {
+  0%, 100% { 
+    text-shadow: var(--subtle-glow);
+    box-shadow: 0 0 8px currentColor;
+  }
+  50% { 
+    text-shadow: var(--soft-glow);
+    box-shadow: 0 0 15px currentColor;
+  }
+}
+
+.quantum-pulse { animation: subtlePulse 3s ease-in-out infinite; }
+.quantum-rotate { animation: subtleRotate 8s linear infinite; }
+.quantum-float { animation: subtleFloat 4s ease-in-out infinite; }
+.quantum-glow { animation: subtleGlow 3s ease-in-out infinite; }
+
+/* ===== MODERN ICONS ===== */
+.quantum-icon {
+  color: var(--quantum-primary);
+  filter: drop-shadow(0 0 6px currentColor);
+  transition: all 0.3s ease;
+}
+
+.quantum-icon:hover {
+  color: var(--quantum-cyan);
+  filter: drop-shadow(0 0 12px currentColor);
+  transform: scale(1.05);
+}
+
+/* ===== LOADING STATES ===== */
+.quantum-loader {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(77, 208, 225, 0.3);
+  border-top: 2px solid var(--quantum-primary);
+  border-radius: 50%;
+  animation: subtleSpin 1.5s linear infinite;
+  filter: drop-shadow(0 0 10px var(--quantum-primary));
+}
+
+@keyframes subtleSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .quantum-background {
+    background-size: 200px 150px;
+  }
+  
+  .quantum-card {
+    padding: 16px;
+    margin: 8px;
+  }
+  
+  .quantum-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--quantum-primary), var(--quantum-secondary));
+  border-radius: 4px;
+  border: 1px solid var(--space-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4dd0e1, #8c7ae6);
+}

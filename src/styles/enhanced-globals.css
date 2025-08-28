@@ -1,0 +1,283 @@
+/* Modern Dark Theme - Reduced Brightness */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Muted Color Palette */
+    --accent-teal: #4dd0e1;         /* Muted teal */
+    --accent-purple: #8c7ae6;       /* Subtle purple */
+    --accent-blue: #64b5f6;         /* Light blue */
+    --accent-gray: #9e9e9e;         /* Neutral gray */
+    
+    /* Dark Background Colors */
+    --dark-navy: #0f1419;           /* Deep navy */
+    --dark-charcoal: #1a1b23;       /* Dark charcoal */
+    --dark-panel: #1e1e2e;          /* Panel background */
+    --dark-panel-light: #2a2a3c;    /* Lighter panel */
+    --dark-border: #3a3a4a;         /* Soft borders */
+    
+    /* Text Colors */
+    --text-primary: #e6e6e6;        /* Off-white */
+    --text-secondary: #d0d0d0;      /* Light gray */
+    --text-muted: #9ca3af;          /* Muted gray */
+    
+    /* Updated UI Variables */
+    --background: #0f1419;
+    --foreground: #d0d0d0;
+    --card: #1e1e2e;
+    --card-foreground: #e6e6e6;
+    --popover: #1e1e2e;
+    --popover-foreground: #d0d0d0;
+    --primary: #4dd0e1;
+    --primary-foreground: #0f1419;
+    --secondary: #2a2a3c;
+    --secondary-foreground: #e6e6e6;
+    --muted: #1a1b23;
+    --muted-foreground: #9ca3af;
+    --accent: #8c7ae6;
+    --accent-foreground: #e6e6e6;
+    --destructive: #ef4444;
+    --destructive-foreground: #e6e6e6;
+    --border: #3a3a4a;
+    --input: #1e1e2e;
+    --ring: #4dd0e1;
+    --radius: 0.75rem;
+    --chart-1: 191 84% 62%;
+    --chart-2: 258 84% 71%;
+    --chart-3: 207 90% 69%;
+    --chart-4: 160 64% 52%;
+    --chart-5: 280 65% 60%;
+  }
+
+  .dark {
+    --background: #0f1419;
+    --foreground: #d0d0d0;
+    --card: #1e1e2e;
+    --card-foreground: #e6e6e6;
+    --popover: #1e1e2e;
+    --popover-foreground: #d0d0d0;
+    --primary: #4dd0e1;
+    --primary-foreground: #0f1419;
+    --secondary: #2a2a3c;
+    --secondary-foreground: #e6e6e6;
+    --muted: #1a1b23;
+    --muted-foreground: #9ca3af;
+    --accent: #8c7ae6;
+    --accent-foreground: #e6e6e6;
+    --destructive: #ef4444;
+    --destructive-foreground: #e6e6e6;
+    --border: #3a3a4a;
+    --input: #1e1e2e;
+    --ring: #4dd0e1;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--dark-charcoal) 100%);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Font Face Declarations */
+@layer base {
+  .font-inter {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Fira Code', 'Consolas', monospace;
+  }
+}
+
+/* Enhanced Scrollbars */
+@layer components {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--dark-panel);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-teal), var(--accent-purple));
+    border-radius: 4px;
+    border: 1px solid var(--dark-border);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #4dd0e1, #8c7ae6);
+  }
+}
+
+/* Selection Styling */
+@layer utilities {
+  ::selection {
+    background: rgba(77, 208, 225, 0.3);
+    color: var(--text-primary);
+  }
+
+  ::-moz-selection {
+    background: rgba(77, 208, 225, 0.3);
+    color: var(--text-primary);
+  }
+}
+
+/* Focus Visible Enhancements */
+@layer utilities {
+  .focus-visible:focus-visible {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(77, 208, 225, 0.2);
+  }
+}
+
+/* Animations & Transitions */
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .click-effect:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Loading States */
+@layer components {
+  .loading-subtle {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loading-subtle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(77, 208, 225, 0.15), 
+      transparent);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+}
+
+/* Responsive Utilities */
+@layer utilities {
+  @media (max-width: 768px) {
+    .mobile-responsive {
+      font-size: 0.875rem;
+      padding: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mobile-compact {
+      font-size: 0.75rem;
+      padding: 0.25rem;
+    }
+  }
+}
+
+/* Print Styles */
+@media print {
+  .print-hidden,
+  .hover-lift,
+  .click-effect,
+  .loading-subtle {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* Split Comparison Map Styles */
+.route-segment-left,
+.route-segment-right {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.route-segment-left:hover,
+.route-segment-right:hover {
+  stroke-width: 7px !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.route-arrow {
+  background: transparent !important;
+  border: none !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.route-summary-left,
+.route-summary-right {
+  background: transparent !important;
+  border: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.custom-marker-left,
+.custom-marker-right {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-marker-left:hover,
+.custom-marker-right:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Real Route Waypoint Styles */
+.real-route-waypoint-left,
+.real-route-waypoint-right {
+  background: transparent !important;
+  border: none !important;
+  transition: all 0.2s ease;
+}
+
+.real-route-waypoint-left:hover,
+.real-route-waypoint-right:hover {
+  transform: scale(1.2);
+}
+
+/* Route Polyline Animation */
+.route-segment-left,
+.route-segment-right {
+  animation: routeFlow 3s linear infinite;
+}
+
+@keyframes routeFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20px; }
+}

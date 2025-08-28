@@ -1,0 +1,141 @@
+/* Import Inter font first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Dark Theme - Light mode (fallback) */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 191 91% 55%;        /* Muted teal */
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;   /* Dark panel lighter */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 240 5.9% 10%;         /* Dark charcoal */
+    --muted-foreground: 240 3.8% 65%;
+    --accent: 263 70% 75%;         /* Subtle purple */
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 240 3.7% 22%;        /* Dark border */
+    --input: 240 3.7% 15.9%;       /* Dark panel */
+    --ring: 191 91% 55%;           /* Muted teal */
+    --radius: 0.75rem;             /* 12px rounded */
+    --chart-1: 191 91% 55%;
+    --chart-2: 263 70% 75%;
+    --chart-3: 207 90% 61%;
+    --chart-4: 142 76% 36%;
+    --chart-5: 47 96% 89%;
+  }
+
+  .dark {
+    /* Modern Dark Theme Variables */
+    --background: 215 28% 8%;      /* Dark navy #0f1419 */
+    --foreground: 0 0% 82%;        /* Light gray text #d0d0d0 */
+    --card: 228 14% 18%;           /* Dark panel #1e1e2e */
+    --card-foreground: 0 0% 90%;   /* Off-white #e6e6e6 */
+    --popover: 228 14% 18%;
+    --popover-foreground: 0 0% 82%;
+    --primary: 191 91% 55%;        /* Muted teal #4dd0e1 */
+    --primary-foreground: 215 28% 8%;
+    --secondary: 229 17% 24%;      /* Dark panel lighter #2a2a3c */
+    --secondary-foreground: 0 0% 90%;
+    --muted: 220 13% 14%;          /* Dark charcoal #1a1b23 */
+    --muted-foreground: 220 9% 62%;
+    --accent: 263 70% 75%;         /* Subtle purple #8c7ae6 */
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 90%;
+    --border: 225 20% 29%;         /* Dark border #3a3a4a */
+    --input: 228 14% 18%;          /* Dark panel */
+    --ring: 191 91% 55%;           /* Muted teal */
+    --chart-1: 191 91% 55%;
+    --chart-2: 263 70% 75%;
+    --chart-3: 207 90% 61%;
+    --chart-4: 142 76% 36%;
+    --chart-5: 47 96% 89%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background: linear-gradient(135deg, #0f1419 0%, #1a1b23 100%);
+    background-attachment: fixed;
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    color: hsl(var(--card-foreground));
+  }
+  
+  /* Interactive elements */
+  button {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Input styling */
+  input, select, textarea {
+    background-color: hsl(var(--input));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+    transition: all 0.2s ease-in-out;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+    outline: none;
+  }
+}
+
+/* Custom styles for 3D and route visualizations */
+.route-tube {
+  background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: route-flow 3s ease-in-out infinite;
+}
+
+.map-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* 3D Canvas styles */
+.r3f-canvas {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
