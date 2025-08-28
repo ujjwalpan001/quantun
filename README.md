@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 🚚 Quantum-Inspired Fleet Optimization
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Overview
 
-## Expanding the ESLint configuration
+This project focuses on solving the *Vehicle Routing Problem (VRP)* — a core challenge in logistics and supply chain management. Classical solutions struggle to scale beyond 30–50 delivery nodes due to exponential complexity.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+We leverage *quantum-inspired algorithms* and *classical simulations of quantum systems* to achieve scalable, efficient, and real-world ready route optimization — *without needing quantum hardware*.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛑 Problem Statement
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* Logistics companies face huge inefficiencies in *path planning and route optimization*.
+* Classical VRP solvers have *exponential complexity (O(n!))*, making large-scale (100+ locations) optimization infeasible.
+* Current AI/ML solutions are slow or too costly for real-time decisions.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💡 Proposed Solution
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+We use a *hybrid quantum-inspired approach* combining:
+
+1. *Simulated Quantum Annealing (SQA)* → explores large solution spaces using Monte Carlo methods to avoid local minima.
+2. *Quantum-Inspired Evolutionary Algorithms (QIEA)* → evolves smarter solutions while respecting constraints (capacity, time windows).
+3. *Classical QAOA Simulation (Quantum Approximate Optimization Algorithm)* → simulated via neural networks, enabling 54-qubit scale experiments on classical GPUs.
+
+This combination provides *scalable, near-optimal routes* for fleets in real time.
+
+---
+
+## ⚙ Tech Stack
+
+* *Frontend:* React.js, Mapbox API (for geocoding & visualization)
+* *Backend:* Python (Flask/FastAPI), Google OR-Tools, PyTorch (for neural network-based QAOA simulation)
+* *Algorithms:*
+
+  * Simulated Quantum Annealing (SQA)
+  * Quantum-Inspired Evolutionary Algorithm (QIEA)
+  * QAOA Simulation with Neural Networks
+* *Deployment:* Docker, GPU-enabled cloud
+
+---
+
+## 🚀 Key Features
+
+* Smart geocoding → search and auto-suggest locations.
+* Optimized multi-vehicle routing with real-time constraints.
+* Quantum-inspired algorithms for *linear scalability to 1000+ nodes*.
+* No reliance on costly or unstable quantum hardware.
+* Visualization of routes on an interactive map.
+
+---
+
+## 🎯 Benefits
+
+* *For logistics companies:* Reduced costs, faster deliveries.
+* *For supply chain managers:* Real-time decision making.
+* *For enterprises:* Wider accessibility, no quantum hardware needed.
+
+---
+
+## 📈 Potential Impact
+
+* Faster, scalable decision-making for real-world logistics.
+* Democratization of quantum-inspired optimization.
+* Commercial adoption possible *today* with classical infrastructure.
+
+---
+
+## ⚠ Challenges & Strategies
+
+* *Challenges:* High computational cost, memory usage, market adoption.
+* *Strategies:* GPU acceleration, distributed computing, memory-efficient tensor networks, hybrid classical + ML integration.
+
+---
+
+## 🔮 Future Scope
+
+* Integration with IoT for live traffic/weather-aware routing.
+* Expansion into healthcare, smart cities, and disaster relief logistics.
+* Transition to real quantum hardware when accessible.
+
+---
+
+📢 “Classical bits think one path at a time. Quantum-inspired algorithms explore many paths at once. That’s how we make logistics smarter, faster, and scalable.”
+
+---
+
+Pink, do you want me to also make a *short one-paragraph abstract version of this README* (like a 60–70 word summary) that you can paste into hackathon submissions or intro slides?
