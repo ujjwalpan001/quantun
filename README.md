@@ -86,6 +86,3 @@ This combination provides *scalable, near-optimal routes* for fleets in real tim
 
 📢 “Classical bits think one path at a time. Quantum-inspired algorithms explore many paths at once. That’s how we make logistics smarter, faster, and scalable.”
 
----
-
-Pink, do you want me to also make a *short one-paragraph abstract version of this README* (like a 60–70 word summary) that you can paste into hackathon submissions or intro slides?
